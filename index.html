@@ -1,15 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PokéDex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokéDex | Pokémon Explorer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <header class="hero">
+    <div class="hero__branding">
+      <div class="logo">PokéDex</div>
+      <div>
+        <p class="eyebrow">Powered by PokeAPI</p>
+        <h1>Search · Filter · Sort your favourite Pokémon</h1>
+        <p class="lead">Fast, responsive, and ready to ship.</p>
+      </div>
+    </div>
+    <div class="hero__actions">
+      <button id="themeToggle" aria-label="Toggle dark mode">🌙 Dark</button>
+      <div class="stat-pill"><span id="loadedCount">0</span> / <span id="totalCount">0</span> loaded</div>
+    </div>
+  </header>
 
-  <h1>PokéDex: Pokémon Explorer</h1>
-  <div id="container"></div>
+  <main class="layout">
+    <section class="controls" aria-label="Pokémon controls">
+      <label class="field">
+        <span>Search by name</span>
+        <input type="search" id="searchInput" placeholder="e.g. pikachu" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>Filter by type</span>
+        <select id="typeSelect">
+          <option value="all">All types</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Sort by</span>
+        <select id="sortSelect">
+          <option value="number">Number (asc)</option>
+          <option value="name">Name (A → Z)</option>
+          <option value="hp">HP (desc)</option>
+          <option value="attack">Attack (desc)</option>
+          <option value="defense">Defense (desc)</option>
+          <option value="speed">Speed (desc)</option>
+        </select>
+      </label>
+    </section>
+
+    <section id="statusBar" class="status" role="status" aria-live="polite">
+      <div id="loader" class="loader">Loading Pokémon…</div>
+      <div id="error" class="error" hidden></div>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">Built with HTML · CSS · JavaScript · Fetch API · PokeAPI</footer>
+
   <script src="script.js"></script>
-
 </body>
 </html>
