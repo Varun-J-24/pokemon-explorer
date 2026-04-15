@@ -1,6 +1,5 @@
 const API_BASE = "https://pokeapi.co/api/v2/pokemon";
-const LIMIT = 151; // first generation, fast to load
-
+const LIMIT = 1302;
 const grid = document.getElementById("grid");
 const loader = document.getElementById("loader");
 const errorBox = document.getElementById("error");
